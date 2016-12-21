@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { ProductAddValidator } from './product-add.validator';
 
-function matchBothSides(matchStatus: AbstractControl) {
-	return matchStatus.get('productName').value == matchStatus.get('shortDescription').value
-		? null : {'Don\'t Match': true};
+function matchBothSides(c: AbstractControl) {
+	return c.get('productPrice').value == 12
+    ? null : {'Number match': true};
 }
 
 @Component({
@@ -14,20 +15,22 @@ function matchBothSides(matchStatus: AbstractControl) {
 
 export class ProductAddComponent implements OnInit {
 
-  form: FormGroup;
+  form: any;
 
   constructor(public fb: FormBuilder) { 
   	this.form = this.fb.group({
-  		productName: ['', Validators.required],
+  		productName: ['', Validators.compose([Validators.required, ProductAddValidator.emailValidator])],
   		shortDescription: ['', Validators.required],
   		productPrice: ['', Validators.required],
   		productThumbnail: '',
-  	},
-  	{ validator: matchBothSides }
-  	);
+  	});
   }
 
   ngOnInit() {
+  }
+
+  saveProduct() {
+
   }
 
 }

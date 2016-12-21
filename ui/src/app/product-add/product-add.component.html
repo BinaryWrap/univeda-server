@@ -9,11 +9,12 @@
   </div>
   <div class="row">
   	<div class="col-lg-8 col-lg-offset-2">
-	    <form novalidate [formGroup]="form">
+	    <form novalidate [formGroup]="form" (submit)="saveProduct()">
 	    	<fieldset class="well">
 		    	<div class="form-group">
 				    <label for="product-name">Product Name</label>
 				    <input type="text" class="form-control" id="product-name" formControlName="productName">
+				    <control-messages [control]="form.controls.productName"></control-messages>
 				  </div>
 		    	<div class="form-group">
 				    <label for="short-description">Short description</label>
@@ -41,15 +42,6 @@
 	</div>
 </div>
 
-<p>form: {{ form.value | json }}</p>
-<br>
-<p>formStatus: {{ form.status }}</p>
-<br>
-<p>formStatus Name: {{ form.get('productName').status }}</p>
-<br>
-<p>formStatus Name: {{ form.get('shortDescription').status }}</p>
-<br>
-<p>formStatus Name: {{ form.get('productPrice').status }}</p>
-<br>
+
 <p>formError Name: {{ form.errors | json }}</p>
 <br>

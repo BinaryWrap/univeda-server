@@ -6,6 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { ProductAddValidator } from './product-add/product-add.validator';
+import { ControlMessagesComponent } from './product-add/product-add.message';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
@@ -17,6 +19,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProductAddComponent,
+    ControlMessagesComponent,
     PageNotFoundComponent
   ],
   imports: [
@@ -26,7 +29,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ProductAddValidator],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
