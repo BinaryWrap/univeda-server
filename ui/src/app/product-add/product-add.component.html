@@ -12,8 +12,8 @@
 	    <form>
 	    	<fieldset class="well">
 		    	<div class="form-group">
-				    <label for="name">Product Name</label>
-				    <input type="text" class="form-control" id="name">
+				    <label for="product-name">Product Name</label>
+				    <input type="text" class="form-control" id="product-name" ngControl="productName" #productName="ngForm" (change)="log(productName)">
 				  </div>
 		    	<div class="form-group">
 				    <label for="short-description">Short description</label>
