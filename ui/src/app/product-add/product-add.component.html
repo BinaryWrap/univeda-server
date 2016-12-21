@@ -9,11 +9,11 @@
   </div>
   <div class="row">
   	<div class="col-lg-8 col-lg-offset-2">
-	    <form>
+	    <form novalidate [formGroup]="form">
 	    	<fieldset class="well">
 		    	<div class="form-group">
 				    <label for="product-name">Product Name</label>
-				    <input type="text" class="form-control" id="product-name" ngControl="productName" #productName="ngForm" (change)="log(productName)">
+				    <input type="text" class="form-control" id="product-name" formControlName="productName">
 				  </div>
 		    	<div class="form-group">
 				    <label for="short-description">Short description</label>
@@ -40,3 +40,5 @@
 	  </div>
 	</div>
 </div>
+
+<p>form: {{ form.value | json }}</p>

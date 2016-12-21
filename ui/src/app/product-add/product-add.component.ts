@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-product-add',
@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductAddComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup;
 
-  ngOnInit() {
+  constructor(public fb: FormBuilder) { 
+  	this.form = this.fb.group({
+  		productName: ''
+  	});
   }
 
-  log(x) {
-  	console.log(x);
+  ngOnInit() {
   }
 
 }
