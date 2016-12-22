@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormArray, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ProductAddValidator } from './product-add.validator';
 
-function matchBothSides(c: AbstractControl) {
-	return c.get('productPrice').value == 12
-    ? null : {'Number match': true};
-}
-
 @Component({
   selector: 'app-product-add',
   templateUrl: './product-add.component.html',
@@ -29,7 +24,7 @@ export class ProductAddComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveProduct() {
+  saveProduct() { 
 
   }
 
