@@ -5,7 +5,8 @@ export class ProductAddValidator {
             'invalidCreditCard': 'Is invalid credit card number',
             'invalidEmailAddress': 'Invalid email address',
             'invalidPassword': 'Invalid password. Password must be at least 6 characters long, and contain a number.',
-            'minlength': `Minimum length ${validatorValue.requiredLength}`
+            'minlength': `Minimum length ${validatorValue.requiredLength}`,
+            'invalidProductName': 'name exists'
         };
 
         return config[validatorName];
@@ -38,4 +39,14 @@ export class ProductAddValidator {
             return { 'invalidPassword': true };
         }
     }
+
+    static productNameFilter(control) {
+      let productNameArray = ['bob','john'];
+      if (productNameArray.indexOf(control.value) === -1) { console.log(control.value);
+        return null;
+      } else {
+        return { 'invalidProductName': true };
+      }
+    }
+
 }

@@ -19,7 +19,7 @@ export class ProductAddComponent implements OnInit {
 
   constructor(public fb: FormBuilder) { 
   	this.form = this.fb.group({
-  		productName: ['', Validators.compose([Validators.required, ProductAddValidator.emailValidator])],
+  		productName: ['', Validators.compose([Validators.required, ProductAddValidator.productNameFilter])],
   		shortDescription: ['', Validators.required],
   		productPrice: ['', Validators.required],
   		productThumbnail: '',

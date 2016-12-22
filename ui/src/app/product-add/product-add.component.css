@@ -1,0 +1,5 @@
+app-product-add .ng-invalid {
+	border-color: #f00 !important;
+	margin: 200px !important;
+	letter-spacing: 100px;
+}
